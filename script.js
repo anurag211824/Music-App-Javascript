@@ -135,30 +135,28 @@ document.addEventListener("DOMContentLoaded", function () {
               <img class="song-image" src="${song.image}" alt="${song.name}" style="width: 80%;" />
                 <h2>${song.name}</h2>
                 <h4>${song.singer}</h4>
-                <p>${song.duration}</p>
+               <div>
+                <span class="timer">0:00</span> 
+                <span>/</span>
+                <span>${song.duration}</span>
       
+               </div>
               <!-- Audio Player -->
                     <audio id="audioPlayer" src="${song.audio}"></audio>
 
-                    <!-- Player Controls -->
-                    <div class="player-controls">
-                        <button class="control-button backward-button">
-                            <i class="fa-solid fa-backward"></i>
-                        </button>
-
+                  
                         <!-- Progress Bar -->
                         <div class="progress-container">
+                         
                             <input type="range" id="progressBar" value="0" max="100">
+                           
+                             <button class="playPauseButton">
+                             <i class="fa-solid fa-play"></i>
+                              </button>
                         </div>
+                  
 
-                        <button class="control-button forward-button">
-                            <i class="fa-solid fa-forward"></i>
-                        </button>
-                    </div>
-
-                    <button class="playPauseButton">
-                        <i class="fa-solid fa-play"></i>
-                    </button>
+                   
           </div>`;
       card.innerHTML = fullSongHtml;
       // Play song when play button is clicked
@@ -174,6 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // Update progress bar as the song plays
+      const progressBar=document.getElementById("progressBar");
       audioPlayer.addEventListener("timeupdate", function () {
         const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
         progressBar.value = progress;
@@ -184,7 +183,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const seekTime = (progressBar.value / 100) * audioPlayer.duration;
         audioPlayer.currentTime = seekTime;
       });
-
+      const timer = document.querySelector(".timer");
+        audioPlayer.addEventListener("timeupdate", function () {
+            const currentTime = audioPlayer.currentTime;
+            const minutes = Math.floor(currentTime / 60);
+            const seconds = Math.floor(currentTime % 60);
+            if(seconds<10){
+                timer.textContent = `${minutes}:0${seconds}`;
+            }
+            else{
+                timer.textContent = `${minutes}:${seconds}`;
+            }
+           
+        });
       // Handle Back Button Click
       const backBtn = document.querySelector(".back-button");
       backBtn.addEventListener("click", function () {
