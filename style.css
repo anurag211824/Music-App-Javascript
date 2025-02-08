@@ -14,15 +14,24 @@ body {
   padding: 0.5rem;
 }
 
-.music-app-container{
+.music-app-container {
     max-width: 400px;
     margin: 3rem auto 1rem;
     background-color: #fff;
-    color:black;
-    padding: 0.6rem;
+    color: black;
     border-radius: 10px;
-
+    position: relative;
+    overflow-y: auto;
+    height: 550px;
+    scrollbar-width: none; /* For Firefox */
+    -ms-overflow-style: none; /* For Internet Explorer and Edge */
 }
+
+/* For WebKit browsers like Chrome and Safari */
+.music-app-container::-webkit-scrollbar {
+    display: none;
+}
+
 .logo{
     display: flex;
     align-items: center;
@@ -37,8 +46,15 @@ body {
     font-size: 1.2rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     padding: 0 0.5rem;
-    border-radius: 10px;
+    width: 100%;
+    
     font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    left:0;
+    right:0;
+    background-color: #fff;
 }
 .song{
     display: flex;
@@ -49,7 +65,7 @@ body {
     padding: 0.5rem 0.7rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     margin-bottom: 0.5rem;
-    border-radius: 5px;
+ 
 }
 .song-details{
     display: flex;
@@ -84,9 +100,9 @@ body {
     font-size: 1.2rem;
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
     padding: 0 0.5rem;
-    border-radius: 10px;
     font-weight: 500;
     width: 100%;
+    
 }
 .full-song-header i{
     cursor: pointer;

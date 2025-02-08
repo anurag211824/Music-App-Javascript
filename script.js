@@ -1,5 +1,12 @@
 const arrayOfSongs = [
   {
+    name: "Admiring You",
+    singer: "Karan Aujla",
+    image: "images/admiringYou.jpg",
+    duration: "3:34",
+    audio: "audio/Admiring-You(PagalNew.Com.Se).mp3",
+  },
+  {
     name: "Ishq Hai",
     singer: "Anurag Saikia",
     image: "images/Mismatched.jpg",
@@ -41,14 +48,34 @@ const arrayOfSongs = [
     duration: "3:24",
     audio: "audio/Haan Ke Haan Maharaj 320 Kbps.mp3",
   },
+  {
+    name: "Aaj ki raat",
+    singer: "	Madhubanti Bagchi",
+    image: "images/aajKiraat.jpg",
+    duration: "3:48",
+    audio: "audio/Aaj-Ki-Raat-(Stree-2)(PagalNew.Com.Se).mp3",
+  },
+  {
+    name:"Softly",
+    singer:"Karan Aujla",
+    image:"images/Softly.jpg",
+    duration:"2:35",
+    audio:"audio/Softly Making Memories 320 Kbps.mp3",
+  },
 ];
+const saveToLocalStorage = (arrayOfSongs) => {
+  localStorage.setItem("songs", JSON.stringify(arrayOfSongs));
+};
 
 document.addEventListener("DOMContentLoaded", function () {
+  saveToLocalStorage(arrayOfSongs);
+  // Check if the songs are already saved in local storage
+  const savedSongs = JSON.parse(localStorage.getItem("songs")) || arrayOfSongs;
   const songListContainer = document.querySelector(".song-list");
   const card = document.querySelector(".music-app-container");
   const header = document.querySelector(".header");
 
-  arrayOfSongs.forEach((song, index) => {
+  savedSongs.forEach((song, index) => {
     const songHTML = `
           <div class="song">
             <img src="${song.image}" width="45" alt="${song.name}" />
@@ -123,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // Update progress bar as the song plays
-      const progressBar=document.getElementById("progressBar");
+      const progressBar = document.getElementById("progressBar");
       audioPlayer.addEventListener("timeupdate", function () {
         const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
         progressBar.value = progress;
@@ -135,18 +162,16 @@ document.addEventListener("DOMContentLoaded", function () {
         audioPlayer.currentTime = seekTime;
       });
       const timer = document.querySelector(".timer");
-        audioPlayer.addEventListener("timeupdate", function () {
-            const currentTime = audioPlayer.currentTime;
-            const minutes = Math.floor(currentTime / 60);
-            const seconds = Math.floor(currentTime % 60);
-            if(seconds<10){
-                timer.textContent = `${minutes}:0${seconds}`;
-            }
-            else{
-                timer.textContent = `${minutes}:${seconds}`;
-            }
-           
-        });
+      audioPlayer.addEventListener("timeupdate", function () {
+        const currentTime = audioPlayer.currentTime;
+        const minutes = Math.floor(currentTime / 60);
+        const seconds = Math.floor(currentTime % 60);
+        if (seconds < 10) {
+          timer.textContent = `${minutes}:0${seconds}`;
+        } else {
+          timer.textContent = `${minutes}:${seconds}`;
+        }
+      });
       // Handle Back Button Click
       const backBtn = document.querySelector(".back-button");
       backBtn.addEventListener("click", function () {
