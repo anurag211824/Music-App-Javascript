@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100..900&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #222222;
+  color: #fff;
+  padding: 0.5rem;
+}
+
+.music-app-container{
+    max-width: 400px;
+    margin: 4rem auto;
+    background-color: #fff;
+    color:black;
+    padding: 0.6rem;
+    border-radius: 10px;
+
+}
+.logo{
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+   
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 0 0.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+}
+.song{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    padding: 0.5rem 0.7rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+}
+.song-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.song-details span{
+    margin-bottom: 0.2rem;
+}
+.song button{
+    padding: 0.2rem 0.7rem;
+    border: none;
+    background-color: rgb(38, 228, 38);
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.song p{
+    font-size: 0.9rem;
+}
+.song img{
+    border-radius:3px ;
+    width: 55px;
+}
+.full-song-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 0 0.5rem;
+    border-radius: 10px;
+    font-weight: 500;
+    width: 100%;
+}
+.full-song-header i{
+    cursor: pointer;
+
+}
+.full-song {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   
+}
+.full-song .song-image{
+  width:70%;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+
+
+h2,h4,p{
+    margin-bottom: 0.2rem;
+}
