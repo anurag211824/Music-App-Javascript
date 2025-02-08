@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
               <div class="full-song-header">
                   <i class="fa-solid fa-arrow-left back-button"></i>
                   <div class="logo">
-                      <img src="/images/musicApp.png" width="45" alt="Music App" />
+                      <img src="images/musicApp.png" width="45" alt="Music App" />
                       <span> Music App </span>
                   </div>
               </div>
