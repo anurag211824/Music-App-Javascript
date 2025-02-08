@@ -43,55 +43,6 @@ const arrayOfSongs = [
   },
 ];
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const songListContainer = document.querySelector(".song-list");
-
-//     arrayOfSongs.forEach((song) => {
-//       // Create the song container div
-//       const songDiv = document.createElement("div");
-//       songDiv.classList.add("song");
-
-//       // Create the image element
-//       const img = document.createElement("img");
-//       img.src = song.image;
-//       img.width = 45;
-//       img.alt = song.name;
-//       songDiv.appendChild(img);
-
-//       // Create the song details div
-//       const songDetails = document.createElement("div");
-//       songDetails.classList.add("song-details");
-
-//       // Create the song name span
-//       const songName = document.createElement("span");
-//       songName.textContent = song.name;
-//       songDetails.appendChild(songName);
-
-//       // Create the singer span
-//       const singer = document.createElement("span");
-//       singer.textContent = song.singer;
-//       songDetails.appendChild(singer);
-
-//       // Append the song details to the song container
-//       songDiv.appendChild(songDetails);
-
-//       // Create the duration paragraph
-//       const duration = document.createElement("p");
-//       duration.textContent = song.duration;
-//       songDiv.appendChild(duration);
-
-//       // Create the play button
-//       const playButton = document.createElement("button");
-//       const playIcon = document.createElement("i");
-//       playIcon.classList.add("fa-solid", "fa-play");
-//       playButton.appendChild(playIcon);
-//       songDiv.appendChild(playButton);
-
-//       // Append the song container to the song list
-//       songListContainer.appendChild(songDiv);
-//     });
-//   });
-
 document.addEventListener("DOMContentLoaded", function () {
   const songListContainer = document.querySelector(".song-list");
   const card = document.querySelector(".music-app-container");
